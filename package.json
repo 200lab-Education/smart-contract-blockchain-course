@@ -1,0 +1,22 @@
+{
+  "name": "nft-marketplace",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "compile": "truffle compile",
+    "merge-nft-marketplace": "sol-merger \"./contracts/NFTMarketplace.sol\" merged-contracts",
+    "deploy-nft-marketplace-testnet": "truffle migrate --network bscTestnet -f 1 --to 1",
+    "deploy-nft-marketplace-mainnet": "truffle migrate --network bscMainnet -f 1 --to 1",
+    "check-contract-size": "truffle run contract-size"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.3.2"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.6.0",
+    "dotenv": "^10.0.0",
+    "sol-merger": "^3.1.0",
+    "truffle": "^5.4.18",
+    "truffle-contract-size": "^2.0.1"
+  }
+}
