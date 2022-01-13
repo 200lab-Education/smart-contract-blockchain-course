@@ -86,7 +86,7 @@ contract NFTMarketplace is Ownable {
         _;
     }
 
-    modifier canMatch(
+    modifier canExecute(
         uint256 orderId_,
         address buyer_,
         uint256 price_
@@ -221,9 +221,9 @@ contract NFTMarketplace is Ownable {
         emit OrderCancelled(orderId_);
     }
 
-    function matchOrder(uint256 orderId_, uint256 price_)
+    function executeOrder(uint256 orderId_, uint256 price_)
         external
-        canMatch(orderId_, _msgSender(), price_)
+        canExecute(orderId_, _msgSender(), price_)
     {
         Order storage _order = orders[orderId_];
         require(
