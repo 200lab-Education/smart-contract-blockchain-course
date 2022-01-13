@@ -34,7 +34,7 @@ contract NFTMarketplace is Ownable {
     uint256 public feeDecimal;
     uint256 public feeRate;
     address public feeRecipient;
-    Counters.Counter private _orderIdTracker;
+    Counters.Counter private _orderIdCount;
 
     mapping(uint256 => Order) public orders;
 
@@ -75,7 +75,7 @@ contract NFTMarketplace is Ownable {
         nftCore = IERC721(nftAddress_);
         _updateFeeRate(feeDecimal_, feeRate_);
         feeRecipient = feeRecipient_;
-        _orderIdTracker.increment();
+        _orderIdCount.increment();
     }
 
     modifier onlySupportedPaymentToken(address paymentToken_) {
@@ -178,14 +178,14 @@ contract NFTMarketplace is Ownable {
         );
         require(price_ > 0, "NFTMarketplace: price must be greater than 0");
 
-        uint256 _orderId = _orderIdTracker.current();
+        uint256 _orderId = _orderIdCount.current();
         Order storage _order = orders[_orderId];
         _order.seller = _msgSender();
         _order.tokenId = tokenId_;
         _order.paymentToken = paymentToken_;
         _order.price = price_;
         _order.status = OrderStatus.PENDING;
-        _orderIdTracker.increment();
+        _orderIdCount.increment();
 
         nftCore.transferFrom(_msgSender(), address(this), tokenId_);
 
