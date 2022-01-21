@@ -6,19 +6,20 @@
     "compile": "truffle compile",
     "merge-marketplace": "sol-merger \"./contracts/Marketplace.sol\" merged-contracts",
     "merge-nft": "sol-merger \"./contracts/MyNFT.sol\" merged-contracts",
-    "deploy-nft-marketplace-testnet": "truffle migrate --network bscTestnet -f 1 --to 1",
-    "deploy-nft-marketplace-mainnet": "truffle migrate --network bscMainnet -f 1 --to 1",
+    "deploy-marketplace-testnet": "truffle migrate --network bscTestnet -f 1 --to 1",
+    "deploy-marketplace-mainnet": "truffle migrate --network bscMainnet -f 1 --to 1",
     "deploy-nft-testnet": "truffle migrate --network bscTestnet -f 2 --to 2",
+    "deploy-nft-mainnet": "truffle migrate --network bscMainnet -f 2 --to 2",
     "check-contract-size": "truffle run contract-size"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.2"
   },
   "devDependencies": {
-    "@truffle/hdwallet-provider": "^1.6.0",
+    "@truffle/hdwallet-provider": "^1.5.0",
     "dotenv": "^10.0.0",
     "sol-merger": "^3.1.0",
-    "truffle": "^5.4.18",
+    "truffle": "^5.4.13",
     "truffle-contract-size": "^2.0.1"
   }
 }
