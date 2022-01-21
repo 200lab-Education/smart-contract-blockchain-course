@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "compile": "truffle compile",
-    "merge-nft-marketplace": "sol-merger \"./contracts/NFTMarketplace.sol\" merged-contracts",
+    "merge-marketplace": "sol-merger \"./contracts/Marketplace.sol\" merged-contracts",
+    "merge-nft": "sol-merger \"./contracts/MyNFT.sol\" merged-contracts",
     "deploy-nft-marketplace-testnet": "truffle migrate --network bscTestnet -f 1 --to 1",
     "deploy-nft-marketplace-mainnet": "truffle migrate --network bscMainnet -f 1 --to 1",
     "deploy-nft-testnet": "truffle migrate --network bscTestnet -f 2 --to 2",

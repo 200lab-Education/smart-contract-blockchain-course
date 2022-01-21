@@ -1,9 +1,9 @@
-const NFTMarketplace = artifacts.require("NFTMarketplace");
+const Marketplace = artifacts.require("Marketplace");
 const Env = require("../env");
 
 module.exports = function (deployer) {
     deployer.deploy(
-        NFTMarketplace,
+        Marketplace,
         Env.get("NFT_ADDRESS"),
         Env.get("FEE_DECIMAL"),
         Env.get("FEE_RATE"),
