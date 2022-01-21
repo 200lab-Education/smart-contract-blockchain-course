@@ -196,6 +196,7 @@ contract Marketplace is Ownable {
 
     function cancelOrder(uint256 orderId_) external {
         Order storage _order = orders[orderId_];
+        require(_order.buyer == address(0), "NFTMarketplace: buyer must be zero");
         require(_order.seller == _msgSender(), "NFTMarketplace: must be owner");
         uint256 _tokenId = _order.tokenId;
         delete orders[orderId_];
